@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 const TickerCard = ({ ticker }) => {
   const [stockData, setStockData] = useState(null)
   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchStockData = async () => {
@@ -16,16 +17,29 @@ const TickerCard = ({ ticker }) => {
         }
 
         const data = await response.json()
-        console.log(data.chart.result[0])
+        //console.log(data.chart.result[0])
         setStockData(data.chart.result[0])
       } catch (err) {
         console.error(`${ticker} 데이터를 가져오는 데 실패했습니다:`, err)
         setError(`${ticker} 데이터를 가져오는 데 실패했습니다.`)
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchStockData()
   }, [ticker])
+
+  if (loading) {
+    return (
+      <div className="bg-white rounded-lg shadow-lg p-6 w-80 mx-auto animate-pulse">
+        {/* animate-pulse : 애니메이션 동작 추가 */}
+        <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+      </div>
+    )
+  }
 
   if (error) {
     return (

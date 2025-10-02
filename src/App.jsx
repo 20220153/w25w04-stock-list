@@ -8,7 +8,7 @@ const stocks = [
   { ticker: 'AMZN' },
   { ticker: 'GOOGL' },
   { ticker: 'AAPL' },
-  { ticker: 'SPL1G'},
+  { ticker: 'SPLG'},
   { ticker: '005930.KS' },
 //  { ticker: '005930.KS', name: '삼성전자', currentPrice: 85400, previousClose: 84700 },
 ]
