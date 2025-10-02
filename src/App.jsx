@@ -4,9 +4,9 @@ import TickerCard from './TickerCard.jsx'
 const stocks = [
   { ticker: 'NVDA' },
   { ticker: 'TSLA'},
-  // { ticker: 'GOOGL' },
-  { ticker: 'AMZN' },
   { ticker: 'GOOGL' },
+  { ticker: 'AMZN' },
+  { ticker: 'GLD' },
   { ticker: 'AAPL' },
   { ticker: 'SPLG'},
   { ticker: '005930.KS' },
